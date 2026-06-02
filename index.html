@@ -5,9 +5,54 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>dragon-clicker</title>
+    <link rel="stylesheet" href="/src/style.css">
   </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+  <body class="flex flex-col h-screen">
+<header class="bg-white-800 text-white italic text-7xl text-center">
+<h1> Dragon Grow</h1>
+</header>
+
+<main class="flex flex-1">
+<div class="flex-1 bg-purple-800/50">
+  <!--clicker-->
+  <p class="text-white text-4xl text-center" id="scoreDisplay">Score</p>
+  <button class="active:scale-95" id="clicker">
+    <img src="/src/assets/egg.png" class="w-130">
+  </button>
+
+  </div>
+
+  <div class="flex-1 bg-purple-800/50">
+<header class="text-white italic text-4xl text-center">
+  <!--store-->
+  <h2>Store</h2>
+  </header>
+  <button id="upgradeOne" class="active:scale-95" id="warmth"> 
+    <img src="/src/assets/blanket.png" class="w-75">
+    <p id="upgradeOneCount">Warmth</p>
+    <p>Cost: 100 scales</p>
+  </button>
+
+  <button id="upgradeOne" class="active:scale-95" id:="Affection">
+    <img src="/src/assets/Affection.png" class="w-75">
+    <p id="upgradeOneCount">Affection</p>
+    <p>Cost: 1000 scales</p>
+  </button>
+
+
+  <button id="upgradeOne" class="active:scale-95" id="Soothe">
+<img src="/src/assets/speech.png" class="w-75">
+<p id="upgradeOneCount">Soothe</p>
+<p>Cost:10000</p>
+  </button>
+  </div>
+
+
+  
+
+ </main>
+    
+ <div id="app"></div>
+ <script type="module" src="/src/main.js"></script>
   </body>
 </html>

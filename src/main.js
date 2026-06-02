@@ -1,60 +1,75 @@
-import './style.css'
-import javascriptLogo from './assets/javascript.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import { setupCounter } from './counter.js'
+let score = 0
 
-document.querySelector('#app').innerHTML = `
-<section id="center">
-  <div class="hero">
-    <img src="${heroImg}" class="base" width="170" height="179">
-    <img src="${javascriptLogo}" class="framework" alt="JavaScript logo"/>
-    <img src="${viteLogo}" class="vite" alt="Vite logo" />
-  </div>
-  <div>
-    <h1>Get started</h1>
-    <p>Edit <code>src/main.js</code> and save to test <code>HMR</code></p>
-  </div>
-  <button id="counter" type="button" class="counter"></button>
-</section>
+let clicker = document.getElementById("clicker")
+let scoreDisplay = document.getElementById("scoreDisplay")
 
-<div class="ticks"></div>
+function updateScore (amount) {
+  score += amount
+  scoreDisplay.innerText = score.toFixed(0) + ' scale'
+}
 
-<section id="next-steps">
-  <div id="docs">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#documentation-icon"></use></svg>
-    <h2>Documentation</h2>
-    <p>Your questions, answered</p>
-    <ul>
-      <li>
-        <a href="https://vite.dev/" target="_blank">
-          <img class="logo" src="${viteLogo}" alt="" />
-          Explore Vite
-        </a>
-      </li>
-      <li>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-          <img class="button-icon" src="${javascriptLogo}" alt="">
-          Learn more
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div id="social">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#social-icon"></use></svg>
-    <h2>Connect with us</h2>
-    <p>Join the Vite community</p>
-    <ul>
-      <li><a href="https://github.com/vitejs/vite" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>GitHub</a></li>
-      <li><a href="https://chat.vite.dev/" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>Discord</a></li>
-      <li><a href="https://x.com/vite_js" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>X.com</a></li>
-      <li><a href="https://bsky.app/profile/vite.dev" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>Bluesky</a></li>
-    </ul>
-  </div>
-</section>
+clicker.addEventListener("click", function () {
+let clickAmt = 1 + (Warmth ** 1.05)
+ updateScore(clickAmt)
 
-<div class="ticks"></div>
-<section id="spacer"></section>
-`
+ soundEffectOne.play()
+})
 
-setupCounter(document.querySelector('#counter'))
+import{  Howl  } from 'howler'
+
+
+import soundEffectOneSrc from './assets/Growl.mp3'
+
+import backgroundMusicSrc from './assets/Magic.mp3'
+
+const soundEffectOne = new Howl({
+  src: [soundEffectOneSrc],
+  volume: 0.5
+})
+
+const backgroundMusic = new Howl({
+src:[backgroundMusicSrc],
+autoplay: true,
+loop: true,
+volume: 0.1
+})
+
+let upgradeOne = document.getElementById("upgradeOne")
+let upgradeOneCount = document.getElementById("upgradeOneCount")
+let Warmth = 0
+
+upgradeOne.addEventListener("click", function() {
+  if(score >= 100){
+  updateScore(-100)
+  Warmth++
+  upgradeOneCount.innerText = Warmth + " Warmth"
+
+  upgradeOneCount.innertext = Warmth + " Warmth"
+  } else{
+    alert('YOUR OUT')
+  }
+})
+
+let upgradeTwo = document.getElementById("upgradeTwo")
+let upgradeTwoCount = document.getElementById("upgradeTwoCount")
+let Affection = 0
+
+upgradeTwo.addEventListener("click", function(){
+  if(score >= 1000){
+    updateScore(-1000)
+    Affection++
+    upgradeOneCount.innertext = Affection + " Affection"
+
+    upgradeOneCount.innertext = Affection + " Affection"
+  }else{
+    alert('NOT ENOUGH')
+  }
+})
+
+function gameloop() {
+  let clickAmt = (Warmth ** 1.05) + (Affection ** 20.05)
+
+  updateScore(clickAtm)
+}
+
+setInterval(gameLoop, 1000)
