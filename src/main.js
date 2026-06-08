@@ -9,7 +9,7 @@ function updateScore (amount) {
 }
 
 clicker.addEventListener("click", function () {
-let clickAmt = 1 + (Warmth ** 1.05)
+let clickAmt = 1 + (Warmth ** 1.05) + (Affection ** 10.5)
  updateScore(clickAmt)
 
  soundEffectOne.play()
@@ -49,6 +49,7 @@ upgradeOne.addEventListener("click", function() {
     alert('YOUR OUT')
   }
 })
+
 
 let upgradeTwo = document.getElementById("upgradeTwo")
 let upgradeTwoCount = document.getElementById("upgradeTwoCount")
